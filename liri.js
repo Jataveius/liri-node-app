@@ -1,5 +1,3 @@
-
-
 require("dotenv").config();
 var keys = require("./keys.js");
 var action = process.argv[2];
@@ -8,7 +6,7 @@ var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var Twitter = require("twitter");
 var client = new Twitter(keys.twitter);
-
+var inquirer = require("inquirer");
 
 // Stores the arguments
 var nodeArgs = process.argv;
@@ -32,7 +30,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
 
 
 //Switch Statment for inquirer
-var inquirer = require("inquirer");
+
 inquirer.prompt([{
     type: "list",
     name: "activity",
@@ -86,7 +84,7 @@ function twitter() {
     client.get("statuses/user_timeline", params, function (error, tweets, response) {
         if (!error) {
 
-            console.log("=============================================");
+            console.log("_________________________________________________");
             console.log("Here are the most recent tweets");
 
             for (var i = 0; i < tweets.length; i++) {
@@ -132,7 +130,7 @@ function twitter() {
             var songResults = data.tracks.items;
 
             for (let i = 0; i < songResults.length; i++) {
-                console.log("===================================================== \n");
+                console.log("-______________________________________________ \n");
                 var songArtists = [];
                 for (let j = 0; j < songResults[i].artists.length; j++) {
                     songArtists.push(songResults[i].artists[j].name);
@@ -146,7 +144,7 @@ function twitter() {
 
             };
 
-            console.log("============================================================");
+            console.log("___________________________________________________");
         });
 
 
@@ -221,7 +219,7 @@ function twitter() {
                     // console.log(command);
                     // console.log(parameter);
                 }
-                // PRINTS THE CONTENTS OF DATA WHICH IS IN RESULT 
+                
                 //console.log(result);
 
                 // if (result != false) {
@@ -249,3 +247,4 @@ function twitter() {
         }
     }
 }
+});
