@@ -9,7 +9,7 @@ exports.twitterKeys = {
 
 exports.spotify ={
   id: "a4fb2b8559c545b7935bc1afed419e9b",
-  secret: "a4fb2b8559c545b7935bc1afed419e9b",
+  secret: "589119fa8d8a40c1a0391dc1be862031",
 };
 
 // exports.twitter = {
